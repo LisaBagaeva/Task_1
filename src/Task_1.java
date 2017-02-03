@@ -6,17 +6,15 @@ import java.util.Set;
 public class Task_1 {
 	public static void printNonUniqueSymbols(String expression) {
 		if (!expression.isEmpty()) {
-			char[] chars = expression.toCharArray();
 			Map<Character, Boolean> elements = new HashMap<>();
-			for (Character ch : chars)
+			for (Character ch : expression.toCharArray())
 				if (ch != ' ')
 					if (elements.containsKey(ch))
 						elements.replace(ch, true);
 					else
 						elements.put(ch, false);
-
-			Set<Character> keys = elements.keySet();
-			for (Character ch : keys)
+			
+			for (Character ch : elements.keySet())
 				if (elements.get(ch))
 					System.out.print(ch + " ");
 		}
